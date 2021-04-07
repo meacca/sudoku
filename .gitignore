@@ -1,0 +1,6 @@
+.python-version
+
+# virtual environment files
+venv/
+
+.idea/
