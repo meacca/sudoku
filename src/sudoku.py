@@ -5,12 +5,18 @@ import numpy as np
 
 class sudoku():
     def __init__(self):
+        """
+        Sudoku class constructor.
+        
+        Initializes Tkinter window object as self.window
+        Stores main interface parameters as self.params
+        Configures Tkinter window and initializes sudoku grid
+        """
         self.window = tk.Tk()
         self.params = {'res': "800x800", "btn_size": 10,
                        "font": font.Font(family='Helvetica')}
         self.size = 9
         self.btn_grid = []
-        self.empty_btn = []
         self.configure_window()
         self.init_grid()
         self.reset_grid()
@@ -37,11 +43,19 @@ class sudoku():
         """
 
     def init_grid(self):
+        """
+        Initializes 
+        """
         for btn_ind in range(self.size * self.size):
             self.btn_grid.append(tk.Button(self.window, text=str(btn_ind + 1), bg="white", fg="black",
                                            font=self.params["font"]))
 
     def prepare_order(self):
+        """
+        Initializes a random sudoku numbers permutation
+        
+        return    order: np.array of size (self.size*self.size, )
+        """
         order = np.zeros((self.size * self.size, ), dtype=int)
         for i in range(self.size):
             data = list(range(1, self.size + 1))
@@ -49,6 +63,11 @@ class sudoku():
         return order
 
     def reset_grid(self):
+        """
+        Initialize sudoku buttons grid with random number permutation
+        
+        Note: button placement procedure considers offsets that divide grid into 3x3 blocks
+        """
         order = self.prepare_order()
 
         for btn_ind, btn_val in enumerate(order):
@@ -68,6 +87,15 @@ class sudoku():
                 self.btn_grid[btn_ind]['text'] = str(btn_val)
 
     def configure_window(self):
+        """
+        Configureы Tkinter window geometry and intializes main UI buttons
+        
+        List of UI buttons:
+            - Start a new game ("New")
+            - Offer a hint ("Hint")
+            - Check current grid layout for mistakes w.r.t sudoku rules("Check")
+            - Exit the game and close the window ("Exit")
+        """
         self.window.title("sudoku")
         self.window.geometry(self.params["res"])
         self.window.configure(bg="grey")
@@ -112,9 +140,15 @@ class sudoku():
                       sticky=tk.N + tk.E + tk.S + tk.W)
 
     def start_game(self):
+        """
+        Tkinter "while True" loop that updates its draw engine frames
+        """
         self.window.mainloop()
 
     def exit_game(self):
+        """
+        Stop Tkinter engine and close window
+        """
         self.window.destroy()
 
 
