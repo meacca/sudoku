@@ -44,7 +44,7 @@ class sudoku():
 
     def init_grid(self):
         """
-        Initializes 
+        Initializes grid with sudoku numbers buttons
         """
         for btn_ind in range(self.size * self.size):
             self.btn_grid.append(tk.Button(self.window, text=str(btn_ind + 1), bg="white", fg="black",
@@ -64,7 +64,7 @@ class sudoku():
 
     def reset_grid(self):
         """
-        Initialize sudoku buttons grid with random number permutation
+        Initializes sudoku buttons grid with random number permutation
         
         Note: button placement procedure considers offsets that divide grid into 3x3 blocks
         """
@@ -88,7 +88,7 @@ class sudoku():
 
     def configure_window(self):
         """
-        Configureы Tkinter window geometry and intializes main UI buttons
+        Configures Tkinter window geometry and intializes main UI buttons
         
         List of UI buttons:
             - Start a new game ("New")
