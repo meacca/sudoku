@@ -3,7 +3,7 @@ from tkinter import font
 import numpy as np
 
 
-class sudoku():
+class Sudoku():
     def __init__(self):
         """
         Sudoku class constructor.
@@ -104,7 +104,7 @@ class sudoku():
             self.window.grid_columnconfigure(i, weight=1)
             self.window.grid_rowconfigure(i + 1, weight=1)
 
-        new_btn = tk.Button(self.window, text='New',
+        new_btn = tk.Button(self.window, text=_("New"),
                             command=self.reset_grid,
                             bg="white", fg="black", font=self.params["font"])
 
@@ -113,7 +113,7 @@ class sudoku():
                      columnspan=self.params["btn_size"],
                      sticky=tk.N + tk.E + tk.S + tk.W)
 
-        hint_btn = tk.Button(self.window, text='Hint',
+        hint_btn = tk.Button(self.window, text=_("Hint"),
                              command=self.reset_grid,
                              bg="white", fg="black", font=self.params["font"])
 
@@ -122,7 +122,7 @@ class sudoku():
                       columnspan=self.params["btn_size"],
                       sticky=tk.N + tk.E + tk.S + tk.W)
 
-        check_btn = tk.Button(self.window, text='Check',
+        check_btn = tk.Button(self.window, text=_("Check"),
                               command=self.reset_grid,
                               bg="white", fg="black", font=self.params["font"])
 
@@ -131,7 +131,7 @@ class sudoku():
                        columnspan=self.params["btn_size"],
                        sticky=tk.N + tk.E + tk.S + tk.W)
 
-        exit_btn = tk.Button(self.window, text='Exit',
+        exit_btn = tk.Button(self.window, text=_("Exit"),
                              command=self.exit_game,
                              bg="white", fg="black", font=self.params["font"])
         exit_btn.grid(column=8 * self.params["btn_size"] - self.params["btn_size"] // 2,
@@ -153,5 +153,5 @@ class sudoku():
 
 
 if __name__ == '__main__':
-    game = sudoku()
+    game = Sudoku()
     game.start_game()
