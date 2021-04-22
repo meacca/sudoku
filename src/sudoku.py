@@ -1,9 +1,12 @@
 import tkinter as tk
 from tkinter import font
 import numpy as np
+import gettext
+
+gettext.install("sudoku", localedir="po")
 
 
-class Sudoku():
+class Sudoku:
     def __init__(self):
         """
         Sudoku class constructor.
