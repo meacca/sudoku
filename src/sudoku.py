@@ -7,7 +7,7 @@ class sudoku():
     def __init__(self):
         """
         Sudoku class constructor.
-        
+
         Initializes Tkinter window object as self.window
         Stores main interface parameters as self.params
         Configures Tkinter window and initializes sudoku grid
@@ -53,7 +53,7 @@ class sudoku():
     def prepare_order(self):
         """
         Initializes a random sudoku numbers permutation
-        
+
         return    order: np.array of size (self.size*self.size, )
         """
         order = np.zeros((self.size * self.size, ), dtype=int)
@@ -65,7 +65,7 @@ class sudoku():
     def reset_grid(self):
         """
         Initializes sudoku buttons grid with random number permutation
-        
+
         Note: button placement procedure considers offsets that divide grid into 3x3 blocks
         """
         order = self.prepare_order()
@@ -89,7 +89,7 @@ class sudoku():
     def configure_window(self):
         """
         Configures Tkinter window geometry and intializes main UI buttons
-        
+
         List of UI buttons:
             - Start a new game ("New")
             - Offer a hint ("Hint")
