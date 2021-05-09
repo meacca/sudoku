@@ -4,7 +4,7 @@ import numpy as np
 class SudokuGrid:
     def __init__(self, size: int = 3):
         self.size = size
-        self.grid = np.zeros((self.size * self.size, self.size * self.size))
+        self.grid = np.zeros((self.size * self.size, self.size * self.size), dtype=np.int32)
 
     def check_grid_correctness(self) -> bool:
         standard = np.arange(1, len(self.grid) + 1)
