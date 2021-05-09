@@ -9,3 +9,4 @@ venv/
 *.mo
 
 build/
+__pycache__/
