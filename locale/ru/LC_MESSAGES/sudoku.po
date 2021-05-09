@@ -33,5 +33,5 @@ msgstr "Проверка корректности"
 
 #: src/sudoku.py:134
 msgid "Exit"
-msgstr "Выходst"
+msgstr "Выход"
 
