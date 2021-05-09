@@ -4,6 +4,7 @@ import numpy as np
 import gettext
 
 gettext.install("sudoku", localedir="po")
+_ = gettext.gettext
 
 
 class Sudoku:
