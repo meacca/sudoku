@@ -1,4 +1,6 @@
 import numpy as np
+import solver
+import random
 
 
 class SudokuGrid:
@@ -76,3 +78,48 @@ class SudokuGrid:
 
     def init_game(self):
         self.generate_true_grid()
+
+    def show(self):
+        print(*self.grid.tolist(), sep='\n')
+
+
+grid = SudokuGrid()
+grid.init_game()
+
+looked = [[0 for j in range(grid.size**2)] for i in range(grid.size**2)]
+iterator = 0
+difficult = grid.size ** 4 #Первоначально все элементы на месте
+
+grid.show()
+print("---------------------------")
+
+while iterator < grid.size ** 4:
+    # Выбор случайной ячейки
+    i,j = random.randrange(0, grid.size**2 ,1), random.randrange(0, grid.size**2 ,1)
+    # Ячейка еще не занулялась
+    if looked[i][j] == 0:
+        iterator += 1
+        looked[i][j] = 1
+
+        # Сохранение удаляемого из ячейки значения
+        temp = grid.grid[i][j]
+        grid.grid[i][j] = 0
+        # Повышение сложности
+        difficult -= 1
+
+        table_solution = []
+        # Создание копии таблицы
+        for copy_i in range(0, grid.size**2):
+            table_solution.append(grid.grid[copy_i][:].tolist())
+
+        i_solution = 0
+        # Определение количества решений
+        for solution in solver.solve(table_solution):
+            i_solution += 1
+
+        if i_solution != 1:
+            grid.grid[i][j] = temp
+            difficult += 1
+
+grid.show()
+print("Сложность:",difficult)
